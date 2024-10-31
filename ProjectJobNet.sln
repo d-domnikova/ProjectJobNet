@@ -10,6 +10,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectJobNet", "ProjectJob
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL", "BLL\BLL.csproj", "{E37DDEA6-81C3-4588-9828-A4C28A8C2AC6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8DF14BA7-137A-4EEB-A825-AAC845654DBF} = {8DF14BA7-137A-4EEB-A825-AAC845654DBF}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{8DF14BA7-137A-4EEB-A825-AAC845654DBF}"
 EndProject
