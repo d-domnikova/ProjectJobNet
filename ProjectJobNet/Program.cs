@@ -1,4 +1,7 @@
 
+using DAL.Context;
+using Microsoft.EntityFrameworkCore;
+
 namespace ProjectJobNet
 {
     public class Program
@@ -11,10 +14,11 @@ namespace ProjectJobNet
             //init
 
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+          
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-
+           builder.Services.AddDbContext<JobNetContext>(options =>
+           options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
