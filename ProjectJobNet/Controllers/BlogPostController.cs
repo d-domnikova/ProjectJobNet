@@ -1,9 +1,11 @@
 ﻿using BLL.Services.Abstractins;
 using BLL.Shared.BlogPost;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ProjectJobNet.Controllers
 {
+    [Authorize]
     [Route("api/posts")]
     [ApiController]
     public class BlogPostController : ControllerBase

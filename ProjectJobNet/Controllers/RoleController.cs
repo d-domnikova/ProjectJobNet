@@ -1,9 +1,11 @@
 ﻿using BLL.Services.Abstractins;
 using BLL.Shared.Role;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ProjectJobNet.Controllers
 {
+    [Authorize]
     [Route("api/roles")]
     [ApiController]
     public class RoleController : ControllerBase

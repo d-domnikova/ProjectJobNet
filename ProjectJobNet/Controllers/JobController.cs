@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ProjectJobNet.Controllers
 {
+    [Authorize]
     [Route("api/jobs")]
     [ApiController]
     public class JobController : ControllerBase
