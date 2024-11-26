@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace DAL.Abstractions
 {
     public interface IUserRepository : IGenericRepository<User> 
-    { 
-
+    {
+        public Task<User> FindUserByEmailAsync(string email);
     }
 }

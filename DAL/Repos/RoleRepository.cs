@@ -12,5 +12,11 @@ namespace DAL.Repos
     public class RoleRepository : GenericRepository<Role> , IRoleRepository
     {
         public RoleRepository(JobNetContext context) : base(context) { }
+
+        public async Task<Role> GetRoleByName(string name)
+        {
+            var roles = await FindAsync(role => role.RoleName == name);
+            return roles.FirstOrDefault();
+        }
     }
 }

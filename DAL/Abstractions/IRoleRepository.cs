@@ -9,6 +9,7 @@ namespace DAL.Abstractions
 {
     public interface IRoleRepository :IGenericRepository<Role>
     {
+        public Task<Role> GetRoleByName(string name);
 
     }
 }

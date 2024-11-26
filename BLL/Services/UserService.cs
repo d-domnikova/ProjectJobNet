@@ -3,6 +3,7 @@ using BLL.Services.Abstractins;
 using BLL.Shared.User;
 using DAL.Abstractions;
 using DAL.Models;
+using Org.BouncyCastle.Crypto.Generators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,8 +40,8 @@ namespace BLL.Services
             var user = _mapper.Map<User>(createUserDto);
             user.CreatedAt = DateTime.Now;
             user.UpdatedAt = DateTime.Now; ;
-
-            await _unitOfWork.UserRepository.AddAsync(user);
+            
+                await _unitOfWork.UserRepository.AddAsync(user);
             await _unitOfWork.CompleteAsync();
         }
 
@@ -63,6 +64,10 @@ namespace BLL.Services
 
             _unitOfWork.UserRepository.Remove(user);
             await _unitOfWork.CompleteAsync();
+        }
+        public string HashPassword(string password)
+        {
+            return BCrypt.Net.BCrypt.HashPassword(password);
         }
     }
 }
