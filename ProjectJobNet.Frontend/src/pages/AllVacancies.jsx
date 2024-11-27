@@ -4,8 +4,8 @@ import SearchBar from "/src/components/pageComponents/SearchBar";
 import SortBar from "/src/components/pageComponents/SortBar";
 import FormField from "/src/components/pageComponents/FormField";
 import Checkbox from '../components/pageComponents/Checkbox';
-import Sort from "../icons/Sort";
-import Filter from "../icons/Filter";
+import MobileSort from "../components/modals/MobileSort";
+import MobileFilter from '../components/modals/MobileFilter';
 
 export default function AllVacancies(){
     return (
@@ -14,12 +14,8 @@ export default function AllVacancies(){
             <div className="mx-[5em] flex justify-between mb-3">
                 <p className="max-w-2xl lg:text-2xl text-xl md:ml-[12em] xl:ml-[20em] py-3 md:py-6 font-semibold">Перегляд вакансій</p>
                 <div className="flex md:hidden space-x-6">
-                    <button>
-                        <Sort width="24" height="24"/>
-                    </button>
-                    <button>
-                        <Filter width="21" height="21"/>
-                    </button>
+                    <MobileSort />
+                    <MobileFilter />
                 </div>
                 <div className="hidden md:flex py-6 xl:pr-16">
                     <SortBar />
