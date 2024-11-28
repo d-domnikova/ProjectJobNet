@@ -1,7 +1,7 @@
 export default function Inst(props){
     let width = props.width ? props.width : "28"
     let height = props.height ? props.height : "28"
-    let color = props.color ? props.color : {color}
+    let color = props.color ? props.color : "black"
     return(
         <svg width={width} height={height} viewBox="0 0 46 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M24.8 2H11.12C6.08316 2 2 6.08316 2 11.12V24.8C2 29.8367 6.08316 33.92 11.12 33.92H24.8C29.8367 33.92 33.92 29.8367 33.92 24.8V11.12C33.92 6.08316 29.8367 2 24.8 2Z" stroke={color} stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>

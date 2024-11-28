@@ -3,7 +3,12 @@ import Report from "src/icons/Report.jsx";
 import StarHalved from "src/icons/StarHalved.jsx";
 import StarEmpty from "src/icons/StarEmpty.jsx";
 
-const Review = ({ avatar, name, comment, rating}) => {
+const Review = (props) => {
+
+    let avatar = props.avatar;
+    let name = props.name;
+    let comment = props.comment;
+    let rating = props.rating;
     const containerStyle = {
         backgroundColor: '#FFFFFF',
         borderRadius: '15px',
@@ -56,7 +61,7 @@ const Review = ({ avatar, name, comment, rating}) => {
     const bodyStyle = {
         fontSize: '16px',
         fontWeight: 400,
-        textAlign:'left',
+        textAlign: 'left',
         color: '#6F6F6F',
         lineHeight: '1.5',
     };
@@ -65,7 +70,9 @@ const Review = ({ avatar, name, comment, rating}) => {
         <div style={containerStyle}>
             <div style={headerStyle}>
                 <div style={{display: 'flex', alignItems: 'center'}}>
-                    <div style={avatarStyle}></div>
+                    <a href={"/personpage/" + props.userid}>
+                        <div style={avatarStyle}></div>
+                    </a>
                     <span style={nameStyle}>{name}</span>
                 </div>
                 <span style={reportStyle}>
@@ -86,11 +93,11 @@ const renderStars = (rating) => {
     const stars = [];
     for (let i = 0; i < 5; i++) {
         if (rating >= i + 1) {
-            stars.push(<StarFilled key={i} />);
+            stars.push(<StarFilled key={i}/>);
         } else if (rating > i) {
             stars.push(<StarHalved key={i}/>);
         } else {
-            stars.push(<StarEmpty key={i} />);
+            stars.push(<StarEmpty key={i}/>);
         }
     }
     return stars;

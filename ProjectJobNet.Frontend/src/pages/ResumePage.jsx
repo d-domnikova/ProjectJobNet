@@ -5,21 +5,19 @@ import HeartOutline from "../icons/HeartOutline";
 import ReportForm from "../components/modals/ReportForm";
 import Tag from "/src/components/Tag";
 
-export default function ServicePage(props){
+export default function ResumePage(props){
     return(
        <div className="mx-[5em] md:mx-[7em] max-w-4xl">
-       <a href="/services" className="flex mx-4 font-semibold text-lg text-gray-500 hover:underline">
+       <a href="/resumes" className="flex mx-4 font-semibold text-lg text-gray-500 hover:underline">
           <svg className="w-3 h-3 rotate-180 inline mt-2 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
           </svg>
-        Всі послуги
-      </a>
+          Всі резюме</a>
        <div className="block px-12 py-6 bg-white border border-gray-200 rounded-3xl shadow mt-6 mb-10">
        <div className="flex justify-between">
           <div className="md:space-y-1.5 mb-3">
-            <h5 className="mb-2 md:text-3xl text-2xl pt-4 font-bold text-gray-900">Назва послуги</h5>
-            <p className="font-semibold md:text-xl text-gray-900 py-1">120 грн/год</p>
-            <p className="font-semibold md:text-xl text-gray-900 py-1">Ім'я Прізвище, Спеціалізація</p>
+            <h5 className="mb-2 md:text-3xl text-2xl pt-4 font-bold text-gray-900">Ім'я Призвище</h5>
+            <p className="font-semibold md:text-xl text-gray-900 py-1">Спеціалізація</p>
             <p className="font-semibold md:text-xl text-gray-900 py-1">Місто, Область</p>
             <div className="md:flex space-x-4">
             <p className="font-semibold md:text-xl text-gray-900 py-1 pb-4">+380-000-000-00-00</p>
@@ -30,15 +28,12 @@ export default function ServicePage(props){
             </div>
             </div>
         </div>
-           <div className="relative">
-               <a href={"/user/" + props.userId}>
-                   <img className="p-5 rounded-t-lg max-h-[24em]" src="https://placehold.co/100x125"
-                        alt="Vacancy image"/>
-               </a>
-                   <ReportForm/>
-           </div>
-       </div>
-           <div className="max-w-xl grid gap-1 grid-cols-2 md:grid-cols-4">
+        <div className="relative">
+          <img className="p-5 rounded-t-lg max-h-[24em]" src="https://placehold.co/100x125" alt="Vacancy image" />
+          <ReportForm />
+        </div>
+      </div>
+      <div className="max-w-xl grid gap-1 grid-cols-2 md:grid-cols-4">
         <Tag url="#" text="Назва тегу"/>
         <Tag url="#" text="Назва тегу"/>
         <Tag url="#" text="Назва тегу"/>
