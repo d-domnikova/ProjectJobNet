@@ -18,6 +18,20 @@ namespace ProjectJobNet
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(MyAllowSpecificOrigins,
+                                      policy =>
+                                      {
+                                          policy.WithOrigins("http://localhost:5173")
+                                                              .AllowAnyHeader()
+                                                              .AllowAnyMethod();
+                                      });
+            });
+
             // Add services to the container.
             //init
             //Реєстрація сервісів
@@ -115,18 +129,7 @@ namespace ProjectJobNet
            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
             var app = builder.Build();
 
-            var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
-
-            builder.Services.AddCors(options =>
-            {
-                options.AddPolicy(name: MyAllowSpecificOrigins,
-                                policy  =>
-                                {
-                                    policy.WithOrigins("http://localhost:5173")
-                                    .AllowAnyHeader()
-                                    .AllowAnyMethod();
-                                });
-            });
+           
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
