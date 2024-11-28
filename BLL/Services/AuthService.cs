@@ -78,11 +78,21 @@ namespace BLL.Services
         public async Task<AuthResponseDTO> RegisterAsync(RegisterDto registerDto)
         {
             // Перевірка наявності користувача з таким email
-            var existingUser = await _unitOfWork.UserRepository.FindUserByEmailAsync(registerDto.Email);
-            if (existingUser != null)
+            //var existingUser = await _unitOfWork.UserRepository.FindUserByEmailAsync(registerDto.Email);
+            //if (existingUser != null)
+            //{
+            //    throw new Exception("User with this email already exists.");
+            //}
+
+            if (! (await _userService.SearchUserAsync("UserName",registerDto.Username)).IsNullOrEmpty())
             {
                 throw new Exception("User with this email already exists.");
             }
+            if (!(await _userService.SearchUserAsync("Email", registerDto.Email)).IsNullOrEmpty())
+            {
+                throw new Exception("User with this email already exists.");
+            }
+
 
             // Мапимо RegisterDto у User
             var newUser = _mapper.Map<User>(registerDto);
