@@ -1,5 +1,6 @@
 ﻿using BLL.Services.Abstractins;
 using BLL.Shared.Resume;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ProjectJobNet.Controllers

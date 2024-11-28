@@ -1,5 +1,6 @@
 ﻿using BLL.Services.Abstractins;
 using BLL.Shared.Category;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ProjectJobNet.Controllers
@@ -53,5 +54,13 @@ namespace ProjectJobNet.Controllers
             await _categoryService.DeleteCategoryAsync(id);
             return NoContent();
         }
+        [HttpGet("/searchCategories/{paramName}/{value}")]
+        public async Task<IActionResult> SearchCategory(string paramName, string value)
+        {
+            var cats =await _categoryService.SearchCategoryAsync(paramName, value);
+            return Ok(cats);
+
+        }
+        
     }
 }

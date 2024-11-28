@@ -1,5 +1,6 @@
 ﻿using BLL.Services.Abstractins;
 using BLL.Shared.User;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ProjectJobNet.Controllers
@@ -53,5 +54,12 @@ namespace ProjectJobNet.Controllers
             await _userService.DeleteUserAsync(id);
             return NoContent();
         }
+        [HttpGet("/search/{searchParam}/{value}")]
+        public async Task<IActionResult> FindByParam(string searchParam, string value)
+        {
+            var result = await _userService.SearchUserAsync(searchParam, value);
+            return Ok(result);
+        }
+
     }
 }
